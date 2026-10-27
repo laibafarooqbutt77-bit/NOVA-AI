@@ -1,0 +1,7 @@
+{
+  "name": "Gemini AI Chatbot",
+  "description": "A modern, lightweight, and fast Gemini AI chatbot featuring real-time streaming, complete conversation CRUD with persistent storage, and full-stack Next.js project code guide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#2563eb", "secondary-fixed-dim": "#d2bbff", "on-background": "#dae2fd", "surface-container-highest": "#2d3449", "tertiary-container": "#00788c", "secondary-container": "#6001d1", "inverse-primary": "#0053db", "on-secondary-container": "#c9aeff", "inverse-on-surface": "#283044", "surface-variant": "#2d3449", "outline-variant": "#434655", "on-primary-fixed": "#00174b", "secondary": "#d2bbff", "on-primary-container": "#eeefff", "on-surface-variant": "#c3c6d7", "on-tertiary-fixed": "#001f26", "tertiary": "#4cd7f6", "primary-fixed": "#dbe1ff", "on-secondary-fixed": "#25005a", "background": "#0b1326", "surface-dim": "#0b1326", "on-error-container": "#ffdad6", "tertiary-fixed-dim": "#4cd7f6", "primary-fixed-dim": "#b4c5ff", "tertiary-fixed": "#acedff", "surface-container-low": "#131b2e", "secondary-fixed": "#eaddff", "on-tertiary-fixed-variant": "#004e5c", "on-primary": "#002a78", "error-container": "#93000a", "outline": "#8d90a0", "surface": "#0b1326", "on-error": "#690005", "surface-container-lowest": "#060e20", "on-primary-fixed-variant": "#003ea8", "on-surface": "#dae2fd", "surface-tint": "#b4c5ff", "error": "#ffb4ab", "surface-container-high": "#222a3d", "inverse-surface": "#dae2fd", "primary": "#b4c5ff", "on-secondary-fixed-variant": "#5a00c6", "on-secondary": "#3f008e", "surface-container": "#171f33", "on-tertiary": "#003640", "on-tertiary-container": "#d7f6ff", "surface-bright": "#31394d" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1rem", "space-xl": "2rem", "margin-tablet": "1.5rem", "margin-desktop": "2rem", "space-sm": "0.5rem", "space-lg": "1.25rem", "gutter-desktop": "1.5rem", "space-md": "0.75rem", "space-xs": "0.25rem", "margin": "1rem" }, "fontFamily": { "label-md": ["Inter"], "code-block": ["JetBrains Mono"], "body-sm": ["Inter"], "display-hero": ["Geist"], "code-inline": ["JetBrains Mono"], "display-hero-mobile": ["Geist"], "headline-lg-mobile": ["Geist"], "body-lg": ["Inter"], "body-md": ["Inter"], "label-mono": ["JetBrains Mono"], "headline-lg": ["Geist"], "headline-md": ["Geist"] }, "fontSize": { "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}], "code-block": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}], "display-hero": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "600"}], "code-inline": ["12px", {"lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "500"}], "display-hero-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "headline-lg-mobile": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400"}], "label-mono": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500"}], "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "500"}] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 min-h-0"><div class="p-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-primary-container via-secondary to-tertiary flex items-center justify-center"><span class="material-symbols-outlined text-surface-container-lowest text-[18px]">auto_awesome</span></div><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-semibold leading-none">Gemini</span><span class="font-label-mono text-label-mono text-tertiary-fixed-dim uppercase leading-none mt-1">Next.js Shell</span></div></div><button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">dock_to_right</span></button></div><div class="px-space-md pb-space-sm"><button class="w-full flex items-center justify-between px-space-md py-space-sm rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all group"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-primary text-[20px]">add</span><span class="font-label-md text-label-md font-medium">New Chat</span></div><kbd class="font-label-mono text-label-mono px-1.5 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">⌘K</kbd></button></div><div class="px-space-md py-space-xs"><div class="p-space-xs rounded-xl bg-surface-container-lowest flex items-center justify-between"><button class="flex-1 py-1 rounded-lg text-center font-label-mono text-label-mono bg-surface-container text-primary font-medium transition-all">1.5 Flash</button><button class="flex-1 py-1 rounded-lg text-center font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface transition-all">1.5 Pro</button></div></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-mono text-label-mono uppercase tracking-wider text-outline">Today</div><div class="group relative flex items-center justify-between px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm truncate pr-2"><span class="material-symbols-outlined text-outline text-[16px]">chat_bubble</span><span class="font-body-sm text-body-sm text-on-surface truncate">Next.js Gemini Streaming API</span></div><div class="hidden group-hover:flex items-center gap-0.5"><button class="p-1 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">edit</span></button><button class="p-1 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">delete</span></button></div></div><div class="group relative flex items-center justify-between px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm truncate pr-2"><span class="material-symbols-outlined text-outline text-[16px]">chat_bubble</span><span class="font-body-sm text-body-sm text-on-surface truncate">Tailwind Theme Setup</span></div><div class="hidden group-hover:flex items-center gap-0.5"><button class="p-1 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">edit</span></button><button class="p-1 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">delete</span></button></div></div></div><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-mono text-label-mono uppercase tracking-wider text-outline">Yesterday</div><div class="group relative flex items-center justify-between px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm truncate pr-2"><span class="material-symbols-outlined text-outline text-[16px]">chat_bubble</span><span class="font-body-sm text-body-sm text-on-surface truncate">Multi-turn prompt tokens</span></div><div class="hidden group-hover:flex items-center gap-0.5"><button class="p-1 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">edit</span></button><button class="p-1 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">delete</span></button></div></div></div><div class="space-y-space-xs"><div class="px-space-sm py-1 font-label-mono text-label-mono uppercase tracking-wider text-outline">Previous 7 Days</div><div class="group relative flex items-center justify-between px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm truncate pr-2"><span class="material-symbols-outlined text-outline text-[16px]">chat_bubble</span><span class="font-body-sm text-body-sm text-on-surface truncate">Edge Runtime Middleware</span></div><div class="hidden group-hover:flex items-center gap-0.5"><button class="p-1 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">edit</span></button><button class="p-1 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">delete</span></button></div></div><div class="group relative flex items-center justify-between px-space-sm py-2 rounded-lg hover:bg-surface-container transition-colors cursor-pointer"><div class="flex items-center gap-space-sm truncate pr-2"><span class="material-symbols-outlined text-outline text-[16px]">chat_bubble</span><span class="font-body-sm text-body-sm text-on-surface truncate">Vector Embeddings Search</span></div><div class="hidden group-hover:flex items-center gap-0.5"><button class="p-1 text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">edit</span></button><button class="p-1 text-on-surface-variant hover:text-error rounded hover:bg-surface-container-high"><span class="material-symbols-outlined text-[14px]">delete</span></button></div></div></div></div></div><div class="p-space-md bg-surface-container-lowest/50 space-y-space-sm"><div class="flex items-center justify-between px-space-xs"><div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-mono text-label-mono text-on-surface-variant">API Key: Active</span></div><span class="font-label-mono text-label-mono text-primary-fixed-dim bg-surface-container px-2 py-0.5 rounded-full">Free Tier</span></div><div class="flex items-center justify-between pt-space-xs"><button class="flex items-center gap-1.5 text-on-surface-variant hover:text-error font-body-sm text-body-sm transition-colors"><span class="material-symbols-outlined text-[16px]">delete_sweep</span><span>Clear History</span></button><button class="p-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors"><span class="material-symbols-outlined text-[18px]">tune</span></button></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 px-space-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-lg"><nav class="flex items-center gap-1 p-1 bg-surface-container-low rounded-xl" data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg"><a class="px-space-md py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="chat-interface" href="#">Chat Interface</a><a class="px-space-md py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="nextjs-project-code-and-setup-guide" href="#">Next.js Project Code &amp; Setup Guide</a></nav></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container font-label-mono text-label-mono text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>gemini-1.5-flash-latest</span></div><a class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 bg-surface flex-1 w-full"><div class="flex flex-col w-full">
+<div class="px-gutter-desktop py-space-xl max-w-7xl mx-auto w-full space-y-space-xl">
+<!-- Hero / Architecture Overview Header -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container p-space-xl shadow-xl">
+<div class="absolute -right-20 -top-20 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -bottom-20 w-96 h-96 bg-tertiary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-highest font-label-mono text-label-mono text-tertiary uppercase tracking-wider">Production Blueprint</span>
+<span class="flex items-center gap-1 font-label-mono text-label-mono text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+              Next.js 14.2+ App Router
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Full-Stack Gemini AI Chat Engine</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+            Zero-leak server-side streaming API, persistent client-side conversation store with zero backend dependency, and fluid reactive UI architecture.
+          </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest font-label-md text-label-md text-on-surface transition-all flex items-center gap-space-xs shadow-sm" onclick="navigator.clipboard.writeText('npx create-next-app@latest gemini-chatbot'); this.innerText='Command Copied!';">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+<span>CLI Quickstart</span>
+</button>
+<a class="px-space-md py-2.5 rounded-lg bg-primary-container hover:bg-primary-container/90 font-label-md text-label-md text-on-primary-container font-semibold transition-all flex items-center gap-space-xs shadow-md shadow-primary-container/20" href="#deployment-section">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+<span>Deploy to Vercel</span>
+</a>
+</div>
+</div>
+<!-- Quick Metrics Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md mt-space-lg pt-space-md bg-surface-container-low/60 rounded-lg p-space-md">
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline uppercase">Streaming Latency</span>
+<span class="font-headline-md text-headline-md text-tertiary font-bold tracking-tight">~140ms</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">First token chunk (Flash)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline uppercase">Client State</span>
+<span class="font-headline-md text-headline-md text-secondary font-bold tracking-tight">Zero-SQL</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hydrated LocalStorage Hook</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline uppercase">API Key Safety</span>
+<span class="font-headline-md text-headline-md text-primary-fixed font-bold tracking-tight">100% Server</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Isolated in edge runtime</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-mono text-label-mono text-outline uppercase">Bundle Footprint</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">&lt; 38 kB</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Minified client scripts</span>
+</div>
+</div>
+</div>
+<!-- Section 1: Quickstart & Setup Commands -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<div class="lg:col-span-1 space-y-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Stack Matrix</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dependencies &amp; baseline requirements</p>
+</div>
+</div>
+<ul class="space-y-space-sm font-body-sm text-body-sm">
+<li class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<span class="text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+              Next.js Framework
+            </span>
+<span class="font-label-mono text-label-mono text-tertiary-fixed-dim bg-surface-container-lowest px-2 py-0.5 rounded">v14.2+ (App Router)</span>
+</li>
+<li class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<span class="text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+              SDK Core
+            </span>
+<span class="font-label-mono text-label-mono text-tertiary-fixed-dim bg-surface-container-lowest px-2 py-0.5 rounded">@google/generative-ai</span>
+</li>
+<li class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<span class="text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+              CSS Styling
+            </span>
+<span class="font-label-mono text-label-mono text-tertiary-fixed-dim bg-surface-container-lowest px-2 py-0.5 rounded">Tailwind CSS 3.4+</span>
+</li>
+<li class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container">
+<span class="text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+              Iconography
+            </span>
+<span class="font-label-mono text-label-mono text-tertiary-fixed-dim bg-surface-container-lowest px-2 py-0.5 rounded">lucide-react &amp; Material</span>
+</li>
+</ul>
+<div class="p-space-md rounded-lg bg-surface-container-highest/50 space-y-space-xs">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-md text-label-md font-semibold">Gemini 1.5 Flash Support</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Optimized for sub-second responses and a massive 1-million token context window on free-tier rate limits.
+          </p>
+</div>
+</div>
+<div class="lg:col-span-2 space-y-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Terminal Initialization</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Step 1: Scaffold fresh project &amp; inject dependencies</p>
+</div>
+</div>
+<span class="font-label-mono text-label-mono px-2 py-1 rounded bg-surface-container text-outline">bash</span>
+</div>
+<!-- Terminal Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-inner">
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container-high/40">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error-container/80"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-outline-variant"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary/40"></span>
+<span class="ml-2 font-label-mono text-label-mono text-outline">Terminal — Scaffold App</span>
+</div>
+<button class="px-2 py-1 rounded font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1" onclick="navigator.clipboard.writeText('npx create-next-app@latest gemini-chatbot --typescript --tailwind --eslint --app --src-dir --import-alias \'@/*\''); this.innerText='Copied!';">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+<div class="p-space-md font-code-block text-code-block text-on-surface leading-relaxed overflow-x-auto">
+<div class="flex items-center gap-2 text-outline-variant select-none"># 1. Initialize TypeScript Next.js app with Tailwind</div>
+<div class="text-tertiary">npx create-next-app@latest gemini-chatbot <span class="text-on-surface-variant">--typescript --tailwind --eslint --app --src-dir --import-alias "@/*"</span></div>
+<div class="mt-2 text-outline-variant select-none"># 2. Enter project folder</div>
+<div class="text-on-surface">cd gemini-chatbot</div>
+</div>
+</div>
+<!-- Terminal Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-inner">
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container-high/40">
+<span class="font-label-mono text-label-mono text-outline">Terminal — Production Packages</span>
+<button class="px-2 py-1 rounded font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-1" onclick="navigator.clipboard.writeText('npm install @google/generative-ai clsx tailwind-merge lucide-react'); this.innerText='Copied!';">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+<div class="p-space-md font-code-block text-code-block text-on-surface leading-relaxed overflow-x-auto">
+<div class="flex items-center gap-2 text-outline-variant select-none"># Install Gemini AI core and utility helpers</div>
+<div class="text-secondary-fixed-dim">npm install <span class="text-tertiary-fixed-dim">@google/generative-ai</span> clsx tailwind-merge lucide-react</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Environment Setup & Zero-Leak Security -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-md space-y-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">shield_lock</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Environment Setup &amp; Key Isolation</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Preventing API token leaks into client-side JS bundles</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest font-label-md text-label-md text-primary transition-colors w-fit" href="https://aistudio.google.com/app/apikey" rel="noopener noreferrer" target="_blank">
+<span>Get Free Key via Google AI Studio</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+<!-- .env.local code snippet -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col justify-between shadow-inner">
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container-high/40">
+<span class="font-label-mono text-label-mono text-on-surface">.env.local</span>
+<button class="px-2 py-1 rounded font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface flex items-center gap-1" onclick="navigator.clipboard.writeText('GEMINI_API_KEY=AIzaSyYourGeneratedSecretKeyHere\n# DO NOT prefix with NEXT_PUBLIC_\nGEMINI_MODEL=gemini-1.5-flash'); this.innerText='Copied!';">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copy</span>
+</button>
+</div>
+<div class="p-space-md font-code-block text-code-block leading-relaxed overflow-x-auto text-on-surface">
+<span class="text-outline-variant"># Google Gemini AI Studio API Key (Server-Only)</span><br/>
+<span class="text-tertiary">GEMINI_API_KEY</span>=<span class="text-secondary-fixed">AIzaSyYourSecretAPIKeyGoesHere_xyz</span><br/><br/>
+<span class="text-outline-variant"># Active Model Selector</span><br/>
+<span class="text-tertiary">GEMINI_MODEL</span>=<span class="text-secondary-fixed">gemini-1.5-flash</span>
+</div>
+<div class="px-space-md py-2 bg-surface-container-high/20 font-label-mono text-label-mono text-outline">
+            Remember: Add .env.local to your .gitignore file
+          </div>
+</div>
+<!-- Security Principles Callout -->
+<div class="bg-surface-container p-space-md rounded-lg flex flex-col justify-between space-y-space-sm">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]">security_update_good</span>
+<span class="font-label-md text-label-md font-semibold">Critical Security Pattern</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Never prepend <code class="font-code-inline text-code-inline text-error bg-surface-container-lowest px-1 rounded">NEXT_PUBLIC_</code> to your <code class="font-code-inline text-code-inline text-tertiary">GEMINI_API_KEY</code>. Variables with that prefix are baked straight into client JavaScript chunks, leaving your key vulnerable to extraction and abuse.
+            </p>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs font-body-sm text-body-sm">
+<div class="p-space-sm rounded bg-surface-container-low">
+<span class="text-error font-medium block">❌ Bad (Insecure):</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">NEXT_PUBLIC_GEMINI_KEY</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low">
+<span class="text-tertiary font-medium block">✓ Good (Safe):</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">GEMINI_API_KEY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Secure Server-Side Route & Client Storage Hook (Tabs) -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-md space-y-space-md" id="code-tabs-container">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">code</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Implementation Codebase</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Complete production files ready to drop in</p>
+</div>
+</div>
+<!-- Custom Tab Navigator -->
+<div class="flex items-center gap-1 p-1 bg-surface-container rounded-lg font-label-md text-label-md">
+<button class="px-space-md py-1 rounded bg-surface-container-highest text-on-surface font-medium transition-all" id="btn-tab-api" onclick="switchCodeTab('api')">
+            app/api/chat/route.ts
+          </button>
+<button class="px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface transition-all" id="btn-tab-hook" onclick="switchCodeTab('hook')">
+            hooks/useChatStorage.ts
+          </button>
+<button class="px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface transition-all" id="btn-tab-client" onclick="switchCodeTab('client')">
+            lib/gemini.ts
+          </button>
+</div>
+</div>
+<!-- Tab 1: app/api/chat/route.ts -->
+<div class="bg-surface-container-lowest rounded-lg overflow-hidden shadow-inner flex flex-col" id="content-tab-api">
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container-high/40">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-mono text-label-mono text-on-surface">src/app/api/chat/route.ts</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-tertiary font-label-mono text-label-mono">Streaming Edge Support</span>
+</div>
+<button class="px-2 py-1 rounded font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface flex items-center gap-1" onclick="navigator.clipboard.writeText(document.getElementById('raw-api-code').innerText); this.innerText='Copied!';">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copy Full File</span>
+</button>
+</div>
+<pre class="p-space-md font-code-block text-code-block leading-relaxed overflow-x-auto text-on-surface"><code id="raw-api-code"><span class="text-secondary-fixed">import</span> { GoogleGenerativeAI } <span class="text-secondary-fixed">from</span> <span class="text-tertiary">'@google/generative-ai'</span>;
+<span class="text-secondary-fixed">import</span> { NextRequest, NextResponse } <span class="text-secondary-fixed">from</span> <span class="text-tertiary">'next/server'</span>;
+
+<span class="text-outline-variant">// Validate API Key exists on server launch</span>
+<span class="text-secondary-fixed">const</span> apiKey = process.env.GEMINI_API_KEY;
+<span class="text-secondary-fixed">if</span> (!apiKey) {
+  console.error(<span class="text-tertiary">'[CRITICAL] Missing GEMINI_API_KEY environment variable.'</span>);
+}
+
+<span class="text-secondary-fixed">const</span> genAI = <span class="text-secondary-fixed">new</span> GoogleGenerativeAI(apiKey || <span class="text-tertiary">''</span>);
+
+<span class="text-secondary-fixed">export async function</span> <span class="text-primary">POST</span>(req: NextRequest) {
+  <span class="text-secondary-fixed">try</span> {
+    <span class="text-secondary-fixed">if</span> (!apiKey) {
+      <span class="text-secondary-fixed">return</span> NextResponse.json(
+        { error: <span class="text-tertiary">'API key configuration error on server.'</span> },
+        { status: 500 }
+      );
+    }
+
+    <span class="text-secondary-fixed">const</span> { messages, model = <span class="text-tertiary">'gemini-1.5-flash'</span> } = <span class="text-secondary-fixed">await</span> req.json();
+
+    <span class="text-secondary-fixed">if</span> (!messages || !Array.isArray(messages) || messages.length === 0) {
+      <span class="text-secondary-fixed">return</span> NextResponse.json(
+        { error: <span class="text-tertiary">'Invalid payload: Array of messages is required.'</span> },
+        { status: 400 }
+      );
+    }
+
+    <span class="text-outline-variant">// Format conversation history into Gemini multi-turn format</span>
+    <span class="text-secondary-fixed">const</span> formattedHistory = messages.slice(0, -1).map((m: any) =&gt; ({
+      role: m.role === <span class="text-tertiary">'assistant'</span> ? <span class="text-tertiary">'model'</span> : <span class="text-tertiary">'user'</span>,
+      parts: [{ text: m.content }],
+    }));
+
+    <span class="text-secondary-fixed">const</span> latestPrompt = messages[messages.length - 1].content;
+    <span class="text-secondary-fixed">const</span> geminiModel = genAI.getGenerativeModel({ model });
+
+    <span class="text-outline-variant">// Initiate multi-turn conversational session</span>
+    <span class="text-secondary-fixed">const</span> chat = geminiModel.startChat({
+      history: formattedHistory,
+      generationConfig: {
+        maxOutputTokens: 2048,
+        temperature: 0.7,
+      },
+    });
+
+    <span class="text-outline-variant">// Stream the generated chunks to client</span>
+    <span class="text-secondary-fixed">const</span> result = <span class="text-secondary-fixed">await</span> chat.sendMessageStream(latestPrompt);
+
+    <span class="text-secondary-fixed">const</span> encoder = <span class="text-secondary-fixed">new</span> TextEncoder();
+    <span class="text-secondary-fixed">const</span> stream = <span class="text-secondary-fixed">new</span> ReadableStream({
+      <span class="text-secondary-fixed">async</span> start(controller) {
+        <span class="text-secondary-fixed">try</span> {
+          <span class="text-secondary-fixed">for await</span> (<span class="text-secondary-fixed">const</span> chunk of result.stream) {
+            <span class="text-secondary-fixed">const</span> chunkText = chunk.text();
+            controller.enqueue(encoder.encode(chunkText));
+          }
+          controller.close();
+        } <span class="text-secondary-fixed">catch</span> (err) {
+          controller.error(err);
+        }
+      },
+    });
+
+    <span class="text-secondary-fixed">return new</span> Response(stream, {
+      headers: {
+        <span class="text-tertiary">'Content-Type'</span>: <span class="text-tertiary">'text/plain; charset=utf-8'</span>,
+        <span class="text-tertiary">'Transfer-Encoding'</span>: <span class="text-tertiary">'chunked'</span>,
+        <span class="text-tertiary">'Cache-Control'</span>: <span class="text-tertiary">'no-cache, no-transform'</span>,
+      },
+    });
+  } <span class="text-secondary-fixed">catch</span> (error: any) {
+    <span class="text-outline-variant">// Handle Rate limits (429) &amp; Auth key defects</span>
+    <span class="text-secondary-fixed">const</span> status = error?.status === 429 ? 429 : 500;
+    <span class="text-secondary-fixed">const</span> message = error?.status === 429
+      ? <span class="text-tertiary">'Gemini API rate limit exceeded. Please retry in a few seconds.'</span>
+      : (error?.message || <span class="text-tertiary">'Internal Generation Error'</span>);
+
+    <span class="text-secondary-fixed">return</span> NextResponse.json({ error: message }, { status });
+  }
+}</code></pre>
+</div>
+<!-- Tab 2: hooks/useChatStorage.ts -->
+<div class="hidden bg-surface-container-lowest rounded-lg overflow-hidden shadow-inner flex flex-col" id="content-tab-hook">
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container-high/40">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-mono text-label-mono text-on-surface">src/hooks/useChatStorage.ts</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-secondary font-label-mono text-label-mono">Full CRUD Store</span>
+</div>
+<button class="px-2 py-1 rounded font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface flex items-center gap-1" onclick="navigator.clipboard.writeText(document.getElementById('raw-hook-code').innerText); this.innerText='Copied!';">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copy Full Hook</span>
+</button>
+</div>
+<pre class="p-space-md font-code-block text-code-block leading-relaxed overflow-x-auto text-on-surface"><code id="raw-hook-code"><span class="text-tertiary">'use client'</span>;
+
+<span class="text-secondary-fixed">import</span> { useState, useEffect, useCallback } <span class="text-secondary-fixed">from</span> <span class="text-tertiary">'react'</span>;
+
+<span class="text-secondary-fixed">export interface</span> ChatMessage {
+  id: <span class="text-primary-fixed-dim">string</span>;
+  role: <span class="text-tertiary">'user'</span> | <span class="text-tertiary">'assistant'</span>;
+  content: <span class="text-primary-fixed-dim">string</span>;
+  timestamp: <span class="text-primary-fixed-dim">number</span>;
+}
+
+<span class="text-secondary-fixed">export interface</span> ChatSession {
+  id: <span class="text-primary-fixed-dim">string</span>;
+  title: <span class="text-primary-fixed-dim">string</span>;
+  createdAt: <span class="text-primary-fixed-dim">number</span>;
+  updatedAt: <span class="text-primary-fixed-dim">number</span>;
+  messages: ChatMessage[];
+}
+
+<span class="text-secondary-fixed">const</span> STORAGE_KEY = <span class="text-tertiary">'gemini_chat_sessions_v1'</span>;
+<span class="text-secondary-fixed">const</span> ACTIVE_SESSION_KEY = <span class="text-tertiary">'gemini_active_session_id'</span>;
+
+<span class="text-secondary-fixed">export function</span> <span class="text-primary">useChatStorage</span>() {
+  <span class="text-secondary-fixed">const</span> [sessions, setSessions] = useState&lt;ChatSession[]&gt;([]);
+  <span class="text-secondary-fixed">const</span> [activeId, setActiveId] = useState&lt;<span class="text-primary-fixed-dim">string</span> | <span class="text-secondary-fixed">null</span>&gt;(<span class="text-secondary-fixed">null</span>);
+  <span class="text-secondary-fixed">const</span> [isLoaded, setIsLoaded] = useState&lt;<span class="text-primary-fixed-dim">boolean</span>&gt;(<span class="text-secondary-fixed">false</span>);
+
+  <span class="text-outline-variant">// READ: Hydrate from LocalStorage safely on mount</span>
+  useEffect(() =&gt; {
+    <span class="text-secondary-fixed">try</span> {
+      <span class="text-secondary-fixed">const</span> raw = localStorage.getItem(STORAGE_KEY);
+      <span class="text-secondary-fixed">const</span> parsed: ChatSession[] = raw ? JSON.parse(raw) : [];
+      setSessions(parsed);
+
+      <span class="text-secondary-fixed">const</span> savedActive = localStorage.getItem(ACTIVE_SESSION_KEY);
+      <span class="text-secondary-fixed">if</span> (savedActive &amp;&amp; parsed.some(s =&gt; s.id === savedActive)) {
+        setActiveId(savedActive);
+      } <span class="text-secondary-fixed">else if</span> (parsed.length &gt; 0) {
+        setActiveId(parsed[0].id);
+      }
+    } <span class="text-secondary-fixed">catch</span> (e) {
+      console.error(<span class="text-tertiary">'Failed to parse chat storage:'</span>, e);
+    } <span class="text-secondary-fixed">finally</span> {
+      setIsLoaded(<span class="text-secondary-fixed">true</span>);
+    }
+  }, []);
+
+  <span class="text-outline-variant">// Internal synchronizer</span>
+  <span class="text-secondary-fixed">const</span> persist = useCallback((updated: ChatSession[]) =&gt; {
+    setSessions(updated);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  }, []);
+
+  <span class="text-outline-variant">// CREATE: Spin up new conversational container</span>
+  <span class="text-secondary-fixed">const</span> createSession = useCallback((customTitle = <span class="text-tertiary">'New Conversation'</span>) =&gt; {
+    <span class="text-secondary-fixed">const</span> newId = <span class="text-tertiary">`session_`</span> + Date.now().toString(36);
+    <span class="text-secondary-fixed">const</span> fresh: ChatSession = {
+      id: newId,
+      title: customTitle,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+      messages: [],
+    };
+    persist([fresh, ...sessions]);
+    setActiveId(newId);
+    localStorage.setItem(ACTIVE_SESSION_KEY, newId);
+    <span class="text-secondary-fixed">return</span> fresh;
+  }, [sessions, persist]);
+
+  <span class="text-outline-variant">// UPDATE: Append message to currently selected conversation</span>
+  <span class="text-secondary-fixed">const</span> appendMessage = useCallback((sessionId: <span class="text-primary-fixed-dim">string</span>, msg: Omit&lt;ChatMessage, <span class="text-tertiary">'id'</span> | <span class="text-tertiary">'timestamp'</span>&gt;) =&gt; {
+    <span class="text-secondary-fixed">const</span> enriched: ChatMessage = {
+      ...msg,
+      id: <span class="text-tertiary">`msg_`</span> + Math.random().toString(36).substring(2, 9),
+      timestamp: Date.now(),
+    };
+
+    <span class="text-secondary-fixed">const</span> next = sessions.map(s =&gt; {
+      <span class="text-secondary-fixed">if</span> (s.id !== sessionId) <span class="text-secondary-fixed">return</span> s;
+      <span class="text-outline-variant">// Auto-title conversation on first human query</span>
+      <span class="text-secondary-fixed">const</span> updatedTitle = s.messages.length === 0 &amp;&amp; msg.role === <span class="text-tertiary">'user'</span>
+        ? msg.content.slice(0, 36) + (msg.content.length &gt; 36 ? <span class="text-tertiary">'...'</span> : <span class="text-tertiary">''</span>)
+        : s.title;
+
+      <span class="text-secondary-fixed">return</span> {
+        ...s,
+        title: updatedTitle,
+        updatedAt: Date.now(),
+        messages: [...s.messages, enriched],
+      };
+    });
+    persist(next);
+  }, [sessions, persist]);
+
+  <span class="text-outline-variant">// UPDATE: Rename title explicitly</span>
+  <span class="text-secondary-fixed">const</span> renameSession = useCallback((sessionId: <span class="text-primary-fixed-dim">string</span>, title: <span class="text-primary-fixed-dim">string</span>) =&gt; {
+    persist(sessions.map(s =&gt; (s.id === sessionId ? { ...s, title, updatedAt: Date.now() } : s)));
+  }, [sessions, persist]);
+
+  <span class="text-outline-variant">// DELETE: Remove single session</span>
+  <span class="text-secondary-fixed">const</span> deleteSession = useCallback((sessionId: <span class="text-primary-fixed-dim">string</span>) =&gt; {
+    <span class="text-secondary-fixed">const</span> next = sessions.filter(s =&gt; s.id !== sessionId);
+    persist(next);
+    <span class="text-secondary-fixed">if</span> (activeId === sessionId) {
+      <span class="text-secondary-fixed">const</span> fallback = next.length &gt; 0 ? next[0].id : <span class="text-secondary-fixed">null</span>;
+      setActiveId(fallback);
+      <span class="text-secondary-fixed">if</span> (fallback) localStorage.setItem(ACTIVE_SESSION_KEY, fallback);
+      <span class="text-secondary-fixed">else</span> localStorage.removeItem(ACTIVE_SESSION_KEY);
+    }
+  }, [sessions, activeId, persist]);
+
+  <span class="text-outline-variant">// DELETE: Nuclear purge of all history</span>
+  <span class="text-secondary-fixed">const</span> clearAll = useCallback(() =&gt; {
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(ACTIVE_SESSION_KEY);
+    setSessions([]);
+    setActiveId(<span class="text-secondary-fixed">null</span>);
+  }, []);
+
+  <span class="text-secondary-fixed">const</span> currentSession = sessions.find(s =&gt; s.id === activeId) || <span class="text-secondary-fixed">null</span>;
+
+  <span class="text-secondary-fixed">return</span> {
+    sessions,
+    currentSession,
+    activeId,
+    setActiveId,
+    isLoaded,
+    createSession,
+    appendMessage,
+    renameSession,
+    deleteSession,
+    clearAll,
+  };
+}</code></pre>
+</div>
+<!-- Tab 3: lib/gemini.ts -->
+<div class="hidden bg-surface-container-lowest rounded-lg overflow-hidden shadow-inner flex flex-col" id="content-tab-client">
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container-high/40">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-mono text-label-mono text-on-surface">src/lib/gemini.ts</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-primary font-label-mono text-label-mono">Client Stream Handler</span>
+</div>
+<button class="px-2 py-1 rounded font-label-mono text-label-mono text-on-surface-variant hover:text-on-surface flex items-center gap-1" onclick="navigator.clipboard.writeText(document.getElementById('raw-client-code').innerText); this.innerText='Copied!';">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copy File</span>
+</button>
+</div>
+<pre class="p-space-md font-code-block text-code-block leading-relaxed overflow-x-auto text-on-surface"><code id="raw-client-code"><span class="text-outline-variant">// Front-end streaming consumer bridge</span>
+<span class="text-secondary-fixed">export async function</span> <span class="text-primary">streamChatCompletion</span>({
+  messages,
+  model = <span class="text-tertiary">'gemini-1.5-flash'</span>,
+  onChunk,
+}: {
+  messages: { role: <span class="text-tertiary">'user'</span> | <span class="text-tertiary">'assistant'</span>; content: <span class="text-primary-fixed-dim">string</span> }[];
+  model?: <span class="text-primary-fixed-dim">string</span>;
+  onChunk: (chunkText: <span class="text-primary-fixed-dim">string</span>) =&gt; <span class="text-primary-fixed-dim">void</span>;
+}) {
+  <span class="text-secondary-fixed">const</span> response = <span class="text-secondary-fixed">await</span> fetch(<span class="text-tertiary">'/api/chat'</span>, {
+    method: <span class="text-tertiary">'POST'</span>,
+    headers: { <span class="text-tertiary">'Content-Type'</span>: <span class="text-tertiary">'application/json'</span> },
+    body: JSON.stringify({ messages, model }),
+  });
+
+  <span class="text-secondary-fixed">if</span> (!response.ok) {
+    <span class="text-secondary-fixed">const</span> errJson = <span class="text-secondary-fixed">await</span> response.json().catch(() =&gt; ({}));
+    <span class="text-secondary-fixed">throw new</span> Error(errJson.error || <span class="text-tertiary">`HTTP Error: ${response.status}`</span>);
+  }
+
+  <span class="text-secondary-fixed">const</span> reader = response.body?.getReader();
+  <span class="text-secondary-fixed">if</span> (!reader) <span class="text-secondary-fixed">throw new</span> Error(<span class="text-tertiary">'No readable stream body returned'</span>);
+
+  <span class="text-secondary-fixed">const</span> decoder = <span class="text-secondary-fixed">new</span> TextDecoder();
+  <span class="text-secondary-fixed">let</span> fullAccumulator = <span class="text-tertiary">''</span>;
+
+  <span class="text-secondary-fixed">while</span> (<span class="text-secondary-fixed">true</span>) {
+    <span class="text-secondary-fixed">const</span> { done, value } = <span class="text-secondary-fixed">await</span> reader.read();
+    <span class="text-secondary-fixed">if</span> (done) <span class="text-secondary-fixed">break</span>;
+
+    <span class="text-secondary-fixed">const</span> text = decoder.decode(value, { stream: <span class="text-secondary-fixed">true</span> });
+    fullAccumulator += text;
+    onChunk(text);
+  }
+
+  <span class="text-secondary-fixed">return</span> fullAccumulator;
+}</code></pre>
+</div>
+</div>
+<!-- Section 4: Architecture Diagram & File System Tree -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- File Tree Card -->
+<div class="lg:col-span-5 bg-surface-container-low p-space-lg rounded-xl shadow-md space-y-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">App Directory Tree</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Standard App Router architectural layout</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-lg font-code-block text-code-block text-on-surface space-y-1 shadow-inner overflow-x-auto">
+<div class="text-outline flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">folder_open</span> gemini-chatbot/</div>
+<div class="pl-4 text-outline flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-tertiary">folder</span> src/</div>
+<div class="pl-8 text-outline flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">folder</span> app/</div>
+<div class="pl-12 text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-tertiary">folder</span> api/</div>
+<div class="pl-16 text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-tertiary">folder</span> chat/</div>
+<div class="pl-20 text-tertiary flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[16px]">code</span> route.ts <span class="text-outline-variant font-label-mono text-label-mono">(Streaming API)</span></div>
+<div class="pl-12 text-on-surface-variant flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">html</span> layout.tsx</div>
+<div class="pl-12 text-on-surface-variant flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">web</span> page.tsx <span class="text-outline-variant font-label-mono text-label-mono">(Chat Viewport)</span></div>
+<div class="pl-8 text-outline flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">folder</span> components/</div>
+<div class="pl-12 text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">view_sidebar</span> Sidebar.tsx <span class="text-outline-variant font-label-mono text-label-mono">(History List)</span></div>
+<div class="pl-12 text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">chat</span> ChatMessage.tsx <span class="text-outline-variant font-label-mono text-label-mono">(Markdown Bubble)</span></div>
+<div class="pl-12 text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">input</span> ChatInput.tsx <span class="text-outline-variant font-label-mono text-label-mono">(Auto-grow Bar)</span></div>
+<div class="pl-8 text-outline flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-tertiary">folder</span> hooks/</div>
+<div class="pl-12 text-secondary flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[16px]">data_object</span> useChatStorage.ts <span class="text-outline-variant font-label-mono text-label-mono">(CRUD Hook)</span></div>
+<div class="pl-8 text-outline flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">folder</span> lib/</div>
+<div class="pl-12 text-on-surface flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px]">terminal</span> gemini.ts <span class="text-outline-variant font-label-mono text-label-mono">(Client Helper)</span></div>
+<div class="pl-4 text-error flex items-center gap-1.5 font-medium"><span class="material-symbols-outlined text-[16px]">lock</span> .env.local <span class="text-outline-variant font-label-mono text-label-mono">(Secret Key)</span></div>
+</div>
+</div>
+<!-- Data Flow Diagram Card -->
+<div class="lg:col-span-7 bg-surface-container-low p-space-lg rounded-xl shadow-md space-y-space-md flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Data Lifecycle Diagram</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">From user keystroke to persistent localStorage</p>
+</div>
+</div>
+<!-- Flow SVG Visualization -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg mt-space-md">
+<svg class="w-full h-auto text-on-surface" fill="none" viewbox="0 0 680 180" xmlns="http://www.w3.org/2000/svg">
+<!-- Step 1: Client Input -->
+<rect fill="#171f33" height="90" rx="8" width="130" x="10" y="30"></rect>
+<text fill="#dae2fd" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="75" y="60">User Client</text>
+<text fill="#8d90a0" font-family="JetBrains Mono" font-size="9" text-anchor="middle" x="75" y="80">ChatInput.tsx</text>
+<text fill="#4cd7f6" font-family="JetBrains Mono" font-size="9" text-anchor="middle" x="75" y="100">Local State</text>
+<!-- Arrow 1 -->
+<path d="M140 75 H 180" stroke="#434655" stroke-dasharray="3 3" stroke-width="2"></path>
+<polygon fill="#8d90a0" points="180,75 174,71 174,79"></polygon>
+<text fill="#8d90a0" font-family="Inter" font-size="8" text-anchor="middle" x="160" y="68">POST</text>
+<!-- Step 2: Next.js Edge Route -->
+<rect fill="#222a3d" height="110" rx="8" width="150" x="185" y="20"></rect>
+<text fill="#dae2fd" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="260" y="50">Next.js API Route</text>
+<text fill="#b4c5ff" font-family="JetBrains Mono" font-size="9" text-anchor="middle" x="260" y="70">/api/chat/route.ts</text>
+<rect fill="#0b1326" height="24" rx="4" width="120" x="200" y="85"></rect>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="8" text-anchor="middle" x="260" y="101">process.env.KEY</text>
+<!-- Arrow 2 -->
+<path d="M335 75 H 375" stroke="#434655" stroke-dasharray="3 3" stroke-width="2"></path>
+<polygon fill="#8d90a0" points="375,75 369,71 369,79"></polygon>
+<text fill="#8d90a0" font-family="Inter" font-size="8" text-anchor="middle" x="355" y="68">gRPC</text>
+<!-- Step 3: Google Gemini API -->
+<rect fill="#171f33" height="110" rx="8" width="140" x="380" y="20"></rect>
+<text fill="#acedff" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="450" y="50">Google Gemini AI</text>
+<text fill="#4cd7f6" font-family="JetBrains Mono" font-size="9" text-anchor="middle" x="450" y="70">gemini-1.5-flash</text>
+<circle cx="450" cy="98" fill="#00788c" r="8"></circle>
+<path d="M446 98 L454 98 M450 94 L450 102" stroke="#ffffff" stroke-width="1.5"></path>
+<!-- Return Streaming Line -->
+<path d="M440 130 C 440 160, 260 160, 75 130" fill="none" stroke="#4cd7f6" stroke-width="1.5"></path>
+<polygon fill="#4cd7f6" points="75,130 81,135 79,127"></polygon>
+<text fill="#4cd7f6" font-family="Inter" font-size="9" text-anchor="middle" x="260" y="156">ReadableStream Chunk Flow</text>
+<!-- Step 4: Storage Anchor -->
+<rect fill="#171f33" height="90" rx="8" width="125" x="545" y="30"></rect>
+<text fill="#d2bbff" font-family="Inter" font-size="11" font-weight="600" text-anchor="middle" x="607" y="60">LocalStorage</text>
+<text fill="#8d90a0" font-family="JetBrains Mono" font-size="9" text-anchor="middle" x="607" y="80">useChatStorage</text>
+<text fill="#b4c5ff" font-family="Inter" font-size="8" text-anchor="middle" x="607" y="100">Persistent Session</text>
+</svg>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs font-body-sm text-body-sm">
+<div class="p-space-sm rounded-lg bg-surface-container">
+<span class="text-tertiary font-semibold block">1. Edge Streaming</span>
+<span class="text-on-surface-variant">Tokens stream directly into react state via Web Streams API.</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container">
+<span class="text-secondary font-semibold block">2. Offline Fallback</span>
+<span class="text-on-surface-variant">Conversations remain persistent locally even if offline.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 5: Step-by-Step Testing & Vercel Deployment -->
+<div class="bg-surface-container-low p-space-lg rounded-xl shadow-md space-y-space-lg" id="deployment-section">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">checklist</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-medium">Verification &amp; One-Click Deployment</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Step-by-step checklist to validate before shipping</p>
+</div>
+</div>
+<!-- 3-Step Verification Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Verification Step 1 -->
+<div class="bg-surface-container p-space-md rounded-lg space-y-space-sm flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono px-2 py-0.5 rounded bg-surface-container-highest text-tertiary">Step 1</span>
+<span class="material-symbols-outlined text-outline text-[18px]">cached</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium">Validate Persistence</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Dispatch a prompt, wait for Gemini chunk generation, and hit <kbd class="px-1.5 py-0.5 rounded bg-surface-container-lowest font-label-mono text-label-mono text-on-surface">⌘R</kbd> (hard refresh).
+            </p>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+<span>Thread must restore instantaneously.</span>
+</div>
+</div>
+<!-- Verification Step 2 -->
+<div class="bg-surface-container p-space-md rounded-lg space-y-space-sm flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono px-2 py-0.5 rounded bg-surface-container-highest text-secondary">Step 2</span>
+<span class="material-symbols-outlined text-outline text-[18px]">stay_current_portrait</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium">Mobile Viewport QA</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Open Chrome DevTools device mode (375px width). Test sidebar slide drawer transition, auto-growing input clearance, and virtual keyboard height shifts.
+            </p>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+<span>No horizontal canvas overflow.</span>
+</div>
+</div>
+<!-- Verification Step 3 -->
+<div class="bg-surface-container p-space-md rounded-lg space-y-space-sm flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-mono text-label-mono px-2 py-0.5 rounded bg-surface-container-highest text-primary">Step 3</span>
+<span class="material-symbols-outlined text-outline text-[18px]">warning</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-medium">Rate-Limit Test (429)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Simulate burst payloads to verify that the UI renders graceful user-facing toast alerts rather than hard unhandled crashes.
+            </p>
+</div>
+<div class="p-space-xs rounded bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check</span>
+<span>Catches API 429 cleanly with retry prompt.</span>
+</div>
+</div>
+</div>
+<!-- Vercel 1-Click Launch Banner -->
+<div class="p-space-lg rounded-xl bg-gradient-to-r from-surface-container-highest via-surface-container to-surface-container-high flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="font-label-mono text-label-mono px-2 py-0.5 rounded bg-surface-container-lowest text-primary-fixed">Production Ready</span>
+<span class="font-headline-md text-headline-md font-semibold">Deploy to Vercel in 60 Seconds</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xl">
+            Push code to GitHub and link to Vercel. Set <code class="font-code-inline text-code-inline text-tertiary bg-surface-container-lowest px-1 rounded">GEMINI_API_KEY</code> in Project Settings → Environment Variables.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-lg py-2.5 rounded-lg bg-on-surface text-surface font-label-md text-label-md font-semibold hover:bg-on-surface/90 transition-all flex items-center gap-space-xs shadow-md" onclick="window.open('https://vercel.com/new', '_blank')">
+<span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+<span>Deploy via Vercel GUI</span>
+</button>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-mono text-label-mono transition-all flex items-center gap-1" onclick="navigator.clipboard.writeText('vercel --prod -e GEMINI_API_KEY=YOUR_KEY_HERE'); this.innerText='CLI Copied!';">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span>vercel --prod</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function switchCodeTab(tabName) {
+    const tabs = ['api', 'hook', 'client'];
+    tabs.forEach(t => {
+      const btn = document.getElementById('btn-tab-' + t);
+      const content = document.getElementById('content-tab-' + t);
+      if (t === tabName) {
+        btn.className = 'px-space-md py-1 rounded bg-surface-container-highest text-on-surface font-medium transition-all';
+        content.classList.remove('hidden');
+      } else {
+        btn.className = 'px-space-md py-1 rounded text-on-surface-variant hover:text-on-surface transition-all';
+        content.classList.add('hidden');
+      }
+    });
+  }
+</script></main></div></body></html>
