@@ -42,10 +42,11 @@ app.post('/api/chat', async (req, res) => {
       grounding = false,
     } = req.body;
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const headerApiKey = req.headers['x-gemini-key'] as string | undefined;
+    const apiKey = headerApiKey || process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return res.status(500).json({
-        error: 'GEMINI_API_KEY is not configured on the server. Please verify your environment variables.',
+        error: 'GEMINI_API_KEY is not configured on the server. Please verify your environment variables or enter your key in Settings.',
       });
     }
 
@@ -92,49 +93,59 @@ app.post('/api/chat', async (req, res) => {
 
     // Determine models to try with automatic fallback on 503 (high demand) or 429
     const requestedModel = model || 'gemini-3.1-flash-lite';
-    const candidateModels = [
-      requestedModel,
-      ...(requestedModel !== 'gemini-3.1-flash-lite' ? ['gemini-3.1-flash-lite'] : []),
-      'gemini-flash-latest',
-    ];
+    const candidateModels = Array.from(
+      new Set([
+        requestedModel,
+        'gemini-3.1-flash-lite',
+        'gemini-flash-latest',
+        'gemini-3.8-flash',
+      ])
+    );
 
-    let responseStream: any = null;
+    let activeIterator: any = null;
+    let initialChunkText: string = '';
+    let isStreamDone = false;
     let lastError: any = null;
 
     for (const candidateModel of candidateModels) {
       try {
-        responseStream = await ai.models.generateContentStream({
+        const stream = await ai.models.generateContentStream({
           model: candidateModel,
           contents,
           config,
         });
-        break;
+
+        // Test the first chunk to guarantee stream is healthy before committing
+        const iterator = stream[Symbol.asyncIterator]();
+        const firstStep = await iterator.next();
+        
+        activeIterator = iterator;
+        initialChunkText = firstStep.value?.text || '';
+        isStreamDone = Boolean(firstStep.done);
+        break; // Successfully started!
       } catch (err: any) {
         lastError = err;
-        console.warn(`Candidate model ${candidateModel} failed, checking fallback...`, err?.message);
-        const msg = String(err?.message || '');
-        if (
-          msg.includes('503') ||
-          msg.includes('UNAVAILABLE') ||
-          msg.includes('high demand') ||
-          msg.includes('429') ||
-          msg.includes('RESOURCE_EXHAUSTED')
-        ) {
-          // Retry with next candidate
-          continue;
-        }
-        break;
+        console.warn(`Candidate model ${candidateModel} failed on startup, trying next...`, err?.message);
+        continue;
       }
     }
 
-    if (!responseStream) {
-      throw lastError || new Error('All available Gemini models are currently busy. Please try again in a few moments.');
+    if (!activeIterator && !initialChunkText) {
+      throw lastError || new Error('All available Gemini models are currently busy. Please try again.');
     }
 
-    for await (const chunk of responseStream) {
-      const text = chunk.text;
-      if (text) {
-        res.write(`data: ${JSON.stringify({ text })}\n\n`);
+    if (initialChunkText) {
+      res.write(`data: ${JSON.stringify({ text: initialChunkText })}\n\n`);
+    }
+
+    if (!isStreamDone && activeIterator) {
+      while (true) {
+        const { done, value } = await activeIterator.next();
+        if (done) break;
+        const text = value?.text;
+        if (text) {
+          res.write(`data: ${JSON.stringify({ text })}\n\n`);
+        }
       }
     }
 

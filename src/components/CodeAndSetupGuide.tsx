@@ -22,7 +22,7 @@ interface CodeAndSetupGuideProps {
 }
 
 export const CodeAndSetupGuide: React.FC<CodeAndSetupGuideProps> = ({ onShowToast }) => {
-  const [activeCodeTab, setActiveCodeTab] = useState<'api' | 'hook' | 'lib' | 'readme'>('api');
+  const [activeCodeTab, setActiveCodeTab] = useState<'api' | 'vercel' | 'hook' | 'lib' | 'readme'>('api');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   const copySnippet = (id: string, text: string, label: string) => {
@@ -245,6 +245,17 @@ export function useChatStorage() {
   }
 
   return fullAccumulator;
+}`;
+
+  const VERCEL_CONFIG_SNIPPET = `{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/((?!api).*)",
+      "destination": "/index.html"
+    }
+  ]
 }`;
 
   const README_SNIPPET = `# Gemini AI Chatbot Setup Guide
@@ -562,7 +573,7 @@ export function useChatStorage() {
             </div>
           </div>
 
-          <div className="flex items-center gap-1 bg-[#F8F6FF] p-1 rounded-xl border border-[#E9E4F5] text-xs">
+          <div className="flex items-center gap-1 bg-[#F8F6FF] p-1 rounded-xl border border-[#E9E4F5] text-xs flex-wrap">
             <button
               onClick={() => setActiveCodeTab('api')}
               className={`px-3 py-1 rounded-lg font-mono transition-colors ${
@@ -572,6 +583,16 @@ export function useChatStorage() {
               }`}
             >
               route.ts
+            </button>
+            <button
+              onClick={() => setActiveCodeTab('vercel')}
+              className={`px-3 py-1 rounded-lg font-mono transition-colors ${
+                activeCodeTab === 'vercel'
+                  ? 'bg-[#FFFFFF] text-[#7C3AED] shadow-xs font-semibold'
+                  : 'text-[#858398] hover:text-[#29263A]'
+              }`}
+            >
+              vercel.json
             </button>
             <button
               onClick={() => setActiveCodeTab('hook')}
@@ -612,6 +633,7 @@ export function useChatStorage() {
               <span className="w-2 h-2 rounded-full bg-[#C4B5FD]"></span>
               <span className="font-mono text-xs text-[#29263A]">
                 {activeCodeTab === 'api' && 'src/app/api/chat/route.ts'}
+                {activeCodeTab === 'vercel' && 'vercel.json (Vercel 404 Fix)'}
                 {activeCodeTab === 'hook' && 'src/hooks/useChatStorage.ts'}
                 {activeCodeTab === 'lib' && 'src/lib/gemini.ts'}
                 {activeCodeTab === 'readme' && 'README.md'}
@@ -621,6 +643,7 @@ export function useChatStorage() {
               onClick={() => {
                 const codeMap = {
                   api: API_CODE,
+                  vercel: VERCEL_CONFIG_SNIPPET,
                   hook: HOOK_CODE,
                   lib: CLIENT_LIB_CODE,
                   readme: README_SNIPPET,
@@ -641,6 +664,7 @@ export function useChatStorage() {
           <pre className="p-4 font-mono text-xs leading-relaxed overflow-x-auto text-[#29263A] max-h-96">
             <code>
               {activeCodeTab === 'api' && API_CODE}
+              {activeCodeTab === 'vercel' && VERCEL_CONFIG_SNIPPET}
               {activeCodeTab === 'hook' && HOOK_CODE}
               {activeCodeTab === 'lib' && CLIENT_LIB_CODE}
               {activeCodeTab === 'readme' && README_SNIPPET}

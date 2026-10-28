@@ -22,6 +22,7 @@ interface ChatMessageBubbleProps {
   onDeleteMessage?: (id: string) => void;
   onRegenerate?: () => void;
   onCopyText?: (text: string) => void;
+  onOpenSettings?: () => void;
   modelName?: string;
 }
 
@@ -31,6 +32,7 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
   onDeleteMessage,
   onRegenerate,
   onCopyText,
+  onOpenSettings,
   modelName = 'Gemini 3.1 Flash Lite',
 }) => {
   const isUser = message.role === 'user';
@@ -201,16 +203,26 @@ export const ChatMessageBubble: React.FC<ChatMessageBubbleProps> = ({
             <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-[#E11D48]" />
             <div className="flex-1">
               <p className="font-semibold text-sm">Response Error</p>
-              <p className="text-xs text-[#BE123C] mt-1">{message.content}</p>
-              {onRegenerate && (
-                <button
-                  onClick={onRegenerate}
-                  className="mt-2.5 inline-flex items-center gap-1 px-3 py-1 rounded-xl bg-[#FFE4E6] hover:bg-[#FECDD3] text-[#9F1239] text-xs font-medium transition-colors border border-[#FDA4AF]"
-                >
-                  <RotateCw className="w-3 h-3" />
-                  <span>Retry Request</span>
-                </button>
-              )}
+              <p className="text-xs text-[#BE123C] mt-1 whitespace-pre-line leading-relaxed">{message.content}</p>
+              <div className="flex items-center gap-2 mt-3 flex-wrap">
+                {onRegenerate && (
+                  <button
+                    onClick={onRegenerate}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FFE4E6] hover:bg-[#FECDD3] text-[#9F1239] text-xs font-medium transition-colors border border-[#FDA4AF]"
+                  >
+                    <RotateCw className="w-3.5 h-3.5" />
+                    <span>Retry Request</span>
+                  </button>
+                )}
+                {onOpenSettings && (
+                  <button
+                    onClick={onOpenSettings}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FFFFFF] hover:bg-[#F8F6FF] text-[#29263A] text-xs font-medium transition-colors border border-[#E9E4F5] shadow-xs"
+                  >
+                    <span>⚙️ Configure Settings / API Key</span>
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         ) : (

@@ -400,6 +400,7 @@ export default function App() {
                         onDeleteMessage={(id) => deleteMessage(activeSession.id, id)}
                         onRegenerate={handleRegenerate}
                         onCopyText={(text) => showToast(text)}
+                        onOpenSettings={() => setIsSettingsOpen(true)}
                         modelName={activeSession.model || settings.model}
                       />
                     );

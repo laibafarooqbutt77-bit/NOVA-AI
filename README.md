@@ -61,12 +61,37 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📦 Next.js 14 App Router Deployment
+## 📦 Vercel Deployment & Fixing 404 Errors
 
-If deploying directly to Next.js 14 App Router:
-- The streaming route handler is located at `src/app/api/chat/route.ts`.
-- Set `GEMINI_API_KEY` in Vercel project environment settings.
-- Do NOT prepend `NEXT_PUBLIC_` to prevent exposing your secret key.
+To deploy this chatbot seamlessly to Vercel:
+
+1. **Push your code to GitHub / GitLab**.
+2. **Import Project to Vercel**:
+   - Framework Preset: **Vite**
+   - Root Directory: `./`
+3. **Add Environment Variable in Vercel**:
+   - Open your project on Vercel -> **Settings** -> **Environment Variables**.
+   - Key: `GEMINI_API_KEY`
+   - Value: Your key from [Google AI Studio](https://aistudio.google.com/apikey)
+   - Environments: Production, Preview, Development.
+4. **Automatic Serverless Function Routing**:
+   - The included `vercel.json` configures Serverless Functions in `api/chat.ts` and routes all non-API paths to `index.html`:
+   ```json
+   {
+     "buildCommand": "npm run build",
+     "outputDirectory": "dist",
+     "rewrites": [
+       {
+         "source": "/((?!api).*)",
+         "destination": "/index.html"
+       }
+     ]
+   }
+   ```
+5. **If you see "Server returned error status 404" on Vercel**:
+   - Commit & push the updated `vercel.json` and `api/chat.ts`.
+   - Go to Vercel Dashboard -> **Deployments** -> click the three dots (`...`) -> **Redeploy**.
+   - OR simply click the **Settings icon (⚙️)** in the chatbot top-right corner to paste your free Gemini API key directly!
 
 ---
 

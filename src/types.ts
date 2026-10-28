@@ -33,4 +33,5 @@ export interface AppSettings {
   grounding: boolean;
   autoScroll: boolean;
   speechSynthesis: boolean;
+  customApiKey?: string;
 }

@@ -211,6 +211,31 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             />
           </div>
 
+          {/* Custom Gemini API Key (for Vercel or personal quota) */}
+          <div className="space-y-1.5 p-3 rounded-xl bg-[#F8F6FF] border border-[#E9E4F5]">
+            <div className="flex items-center justify-between">
+              <label className="text-xs font-semibold text-[#29263A] block">Gemini API Key (Optional)</label>
+              <a
+                href="https://aistudio.google.com/apikey"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[11px] text-[#7C3AED] hover:underline"
+              >
+                Get Free API Key →
+              </a>
+            </div>
+            <input
+              type="password"
+              value={form.customApiKey || ''}
+              onChange={(e) => setForm({ ...form, customApiKey: e.target.value })}
+              placeholder="AIzaSy... (Leave empty to use server environment variable)"
+              className="w-full bg-[#FFFFFF] text-xs text-[#29263A] px-3 py-2 rounded-xl border border-[#E9E4F5] focus:outline-none focus:border-[#C4B5FD] font-mono"
+            />
+            <p className="text-[10px] text-[#858398] leading-relaxed">
+              If deploying on Vercel without environment variables, you can paste your free API key here. It stays safely stored in your browser.
+            </p>
+          </div>
+
           {/* Grounding with Google Search Toggle */}
           <div className="flex items-center justify-between p-3 rounded-xl bg-[#F8F6FF] border border-[#E9E4F5]">
             <div>
